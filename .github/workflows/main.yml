@@ -65,7 +65,7 @@ jobs:
 
     - name: Levanto docker
       run: |
-        docker run -d --name products-service-example --env "APP_ARGS=http://127.0.0.1:8080 http://127.0.0.1:8080 http://127.0.0.1:8080" -p 8080:8080 ignaciomontero2022/orders-service-example:${{ github.sha }}
+        docker run -d --name products-service-example --env "APP_ARGS=http://127.0.0.1:8080 http://127.0.0.1:8080 http://127.0.0.1:8080" -p 8080:8080 ignaciomontero2022/products-service-example:${{ github.sha }}
         curl --location --request GET '127.0.0.1/products'
         curl --location --request GET '127.0.0.1'
     # - name: Build de products-service-example
