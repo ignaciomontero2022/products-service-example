@@ -75,4 +75,4 @@ jobs:
     #     push: true
     #     tags: ignaciomontero2022/orders-service-example:${{ github.sha }}
 
-    https://sonarcloud.io/web_api/api/qualitygates/project_status?deprecated=false
+   # https://sonarcloud.io/web_api/api/qualitygates/project_status?deprecated=false
