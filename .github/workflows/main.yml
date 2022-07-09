@@ -66,7 +66,9 @@ jobs:
     - name: Levanto docker
       run: |
         docker run -d --name products-service-example --env "APP_ARGS=http://172.16.0.2:8080" -p 8080:8080 ignaciomontero2022/products-service-example:${{ github.sha }}
-        curl --location --request GET '172.16.0.2:8080/products/123'
+        docker network create redlocal
+        docker network connect redlocal products-service-example
+        curl --location --request GET '172.16.0.2:8080/123'
     # - name: Build de products-service-example
     #   uses: docker/build-push-action@v3
     #  with:
