@@ -7,34 +7,34 @@ on:
   
 jobs:
   
-  # Sonarcloud:
-  #   name: Escaneo con Sonarcloud
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: 0  
-  #     - name: Set up JDK 11
-  #       uses: actions/setup-java@v1
-  #       with:
-  #         java-version: 11
-  #     - name: Cache SonarCloud packages
-  #       uses: actions/cache@v1
-  #       with:
-  #         path: ~/.sonar/cache
-  #         key: ${{ runner.os }}-sonar
-  #         restore-keys: ${{ runner.os }}-sonar
-  #     - name: Cache Maven packages
-  #       uses: actions/cache@v1
-  #       with:
-  #         path: ~/.m2
-  #         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-  #         restore-keys: ${{ runner.os }}-m2
-  #     - name: Build and analyze
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-  #         SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
-  #       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ignaciomontero2022_products-service-example
+  Sonarcloud:
+    name: Escaneo con Sonarcloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ignaciomontero2022_products-service-example
 
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
@@ -67,10 +67,12 @@ jobs:
       run: |
         docker run -d --name products-service-example -p 8080:8080 -p 8081:8081 ignaciomontero2022/products-service-example:${{ github.sha }}
         docker ps -a
-        curl --location --request GET '0.0.0.0:8081/products/123'
+        curl --location --request GET '0.0.0.0:8081/123'
     # - name: Build de products-service-example
     #   uses: docker/build-push-action@v3
     #  with:
     #     context: .
     #     push: true
     #     tags: ignaciomontero2022/orders-service-example:${{ github.sha }}
+
+    https://sonarcloud.io/web_api/api/qualitygates/project_status?deprecated=false
