@@ -67,9 +67,9 @@ jobs:
       run: |
         docker run -d --name products-service-example -p 8080:8080 ignaciomontero2022/products-service-example:${{ github.sha }}
         docker ps -a
-        docker log
+        docker logs
         sleep 60
-        docker log
+        docker logs
         telnet 127.0.0.1 8080
         curl --location --request GET '127.0.0.1:8080/products/123'
     # - name: Build de products-service-example
