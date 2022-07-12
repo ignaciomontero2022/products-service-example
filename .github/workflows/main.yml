@@ -71,7 +71,7 @@ jobs:
         docker ps -a
         echo $JAR_FILE
         docker logs products-service-example
-        curl --location --request GET '127.0.0.1:8080/123'
+        curl --location --request GET '127.0.0.1:8080'
     # - name: Build de products-service-example
     #   uses: docker/build-push-action@v3
     #  with:
