@@ -61,8 +61,7 @@ jobs:
       with:
         context: .
         load: true
-        build-arg: |
-          JAR_FILE=app.jar
+        build-arg: 'JAR_FILE=app.jar'
         tags: ignaciomontero2022/products-service-example:${{ github.sha }}
 
     - name: Levanto docker
