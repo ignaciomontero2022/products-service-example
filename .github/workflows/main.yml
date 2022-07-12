@@ -38,7 +38,7 @@ jobs:
 
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
-    needs: Sonar
+    #needs: Sonar
     runs-on: ubuntu-latest
     steps:
     - name: Checkout del codigo
