@@ -61,7 +61,7 @@ jobs:
       with:
         context: .
         load: true
-        build-args: --build-arg JAR_FILE=/home/runner/work/products-service-example/products-service-example/target/products-service-example-0.0.1-SNAPSHOT-spring-boot.jar
+        build-args: --build-arg "JAR_FILE=/home/runner/work/products-service-example/products-service-example/target/products-service-example-0.0.1-SNAPSHOT-spring-boot.jar"
         tags: ignaciomontero2022/products-service-example:${{ github.sha }}
 
     - name: Levanto docker
