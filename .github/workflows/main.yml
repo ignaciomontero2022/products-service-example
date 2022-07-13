@@ -78,7 +78,7 @@ jobs:
         timeout: 60 # optional
         interval: 10 # optional    
     
-    - name: Build an
+    - name: Buildeo y push a docker
       uses: docker/build-push-action@v3
       with:
         context: .
