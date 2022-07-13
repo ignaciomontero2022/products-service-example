@@ -38,7 +38,7 @@ jobs:
 
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
-    needs: Sonar
+    needs: Sonarcloud
     runs-on: ubuntu-latest
     steps:
     - name: Checkout del codigo
@@ -78,7 +78,7 @@ jobs:
         timeout: 60 # optional
         interval: 10 # optional    
     
-    - name: Build and export to Docker
+    - name: Build an
       uses: docker/build-push-action@v3
       with:
         context: .
