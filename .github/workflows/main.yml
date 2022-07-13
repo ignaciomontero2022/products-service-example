@@ -69,18 +69,19 @@ jobs:
       run: |
         docker run -d --name products-service-example -p 8080:8080 ignaciomontero2022/products-service-example:${{ github.sha }}
         sleep 30
-        curl -o - -I --location --request GET '127.0.0.1:8080/products/123'
+        curl --location --request GET '127.0.0.1:8080/products/123'
 
     - name: Chequeo de microservicio en container.
       run: |
         curl -o - -I --location --request GET '127.0.0.1:8080/products/123'
 
-
-    # - name: Chequeo si microservicio levanto y contesta
-    #   uses: lakuapik/gh-actions-http-status@v1
-    #   with:
-    #     sites: '["http://127.0.0.1:8080/products/123"]'
-    #     expected: '[200]'
+    - - name: Check HTTP status
+        uses: gerdemann/http-status-code@1.0.0
+        with:
+          url: http://127.0.0.1:8080/products/123
+          code: 200 # optional
+          timeout: 60 # optional
+          interval: 10 # optional
     
     
     #   curl --location --request GET '127.0.0.1:8080/products/123'
