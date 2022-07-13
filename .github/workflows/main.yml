@@ -76,12 +76,12 @@ jobs:
         curl -o - -I --location --request GET '127.0.0.1:8080/products/123'
 
     - name: Check HTTP status
-        uses: gerdemann/http-status-code@1.0.0
-        with:
-          url: http://127.0.0.1:8080/products/123
-          code: 200 # optional
-          timeout: 60 # optional
-          interval: 10 # optional
+      uses: gerdemann/http-status-code@1.0.0
+      with:
+        url: http://127.0.0.1:8080/products/123
+        code: 200 # optional
+        timeout: 60 # optional
+        interval: 10 # optional
     
     
     #   curl --location --request GET '127.0.0.1:8080/products/123'
