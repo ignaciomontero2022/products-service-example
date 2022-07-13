@@ -78,7 +78,7 @@ jobs:
         timeout: 60 # optional
         interval: 10 # optional    
     
-- name: Build and export to Docker
+    - name: Build and export to Docker
       uses: docker/build-push-action@v3
       with:
         context: .
