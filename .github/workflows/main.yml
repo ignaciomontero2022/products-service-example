@@ -69,10 +69,16 @@ jobs:
       run: |
         docker run -d --name products-service-example -p 8080:8080 ignaciomontero2022/products-service-example:${{ github.sha }}
         sleep 30
-        docker ps -a
         echo $JAR_FILE
-        docker logs products-service-example
-        curl --location --request GET '127.0.0.1:8080/products/123'
+    
+    - name: Chequeo si microservicio levanto y contesta
+      uses: lakuapik/gh-actions-http-status@v1
+      with:
+        sites: '["127.0.0.1:8080/products/123"]'
+        expected: '[200]'
+    
+    
+    #   curl --location --request GET '127.0.0.1:8080/products/123'
     # - name: Build de products-service-example
     #   uses: docker/build-push-action@v3
     #  with:
