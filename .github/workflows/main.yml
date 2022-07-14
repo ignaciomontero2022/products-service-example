@@ -32,7 +32,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Needesd to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{ secrets.SONAR_PROJETKEY }}
       
@@ -82,7 +82,7 @@ jobs:
     - name: Chequeo de microservicio en container.
       uses: gerdemann/http-status-code@1.0.0
       with:
-        url: http://127.0.0.1:8080/products/123
+        url: ${{ secrets.URL_TEST }}
         code: 200 
         timeout: 60 
         interval: 10    
