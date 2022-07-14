@@ -32,16 +32,17 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-          SONAR_TOKEN: "543c2e5ffe31f12fc4da45c0c5901462b7e4c401" #${{ secrets.SONARCLOUD_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{ secrets.SONAR_PROJETKEY }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ignaciomontero2022_products-service-example
+      
       - name: SonarQube Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@master
         timeout-minutes: 5 
         with:
           scanMetadataReportFile: target/sonar/report-task.txt
           env: 
-          SONAR_TOKEN: "543c2e5ffe31f12fc4da45c0c5901462b7e4c401" #${{ secrets.SONARCLOUD_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
 
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
