@@ -42,7 +42,7 @@ jobs:
         with:
           scanMetadataReportFile: target/sonar/report-task.txt
           env: 
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
