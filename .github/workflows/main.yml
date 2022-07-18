@@ -83,7 +83,7 @@ jobs:
     - name: Chequeo de microservicio en container.
       uses: gerdemann/http-status-code@1.0.0
       with:
-        url: ${{ secrets.URL_TEST }}
+        url: '[${{ secrets.URL_TEST }}]'
         code: 200 
         timeout: 60 
         interval: 10    
