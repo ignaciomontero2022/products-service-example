@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: products-service
 spec:
-  clusterIP: 172.20.1.11
+  clusterIP: 172.20.1.15
   selector:
     app: products-app
   ports:
