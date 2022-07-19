@@ -105,7 +105,6 @@ jobs:
         aws-session-token: ${{ secrets.AWS_SESION_TOKEN }}
         aws-region: us-east-1 
     
-<<<<<<< HEAD
     - name: Instalación de kubectl   
       uses: azure/setup-kubectl@v2.0
       with:
