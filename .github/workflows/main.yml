@@ -118,5 +118,5 @@ jobs:
     
     - name: Deploy de imagen a EKS. 
       run: |
-        kubectl delete pod,service products-app-6c76495d8c-ckcf9  products-service
+       kubectl delete pod products-app-6c76495d8c-ckcf9  
 #        kubectl apply -f  products.yaml
