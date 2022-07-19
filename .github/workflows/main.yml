@@ -117,4 +117,6 @@ jobs:
         kubectl-version: v1.23.6
     
     - name: Deploy de imagen a EKS. 
-      run: kubectl apply -f  products.yaml
+      run: |
+        kubectl delete pod,service products-app products-app
+        kubectl apply -f  products.yaml
