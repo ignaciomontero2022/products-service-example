@@ -122,4 +122,4 @@ jobs:
         NOMBRE_POD=$(kubectl get pods | grep products | awk '{print $1}')
         echo $NOMBRE_POD
 #       kubectl expose pod $NOMBRE_POD --port=8081  --name=products-service-expo8081 --type=LoadBalancer
-        kubectl get svc | grep products | awk '{print $5}')
+        kubectl get svc | grep products | awk '{print $5}'
