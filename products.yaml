@@ -49,6 +49,5 @@ spec:
             memory: "1000Mi"
             cpu: "500m"
         imagePullPolicy: Always
-        strategy: Recreate
         ports:
         - containerPort: 8080
