@@ -119,4 +119,4 @@ jobs:
     - name: Deploy de imagen a EKS. 
       run: |
         kubectl apply -f products.yaml
-        kubectl get pods
+        kubectl get pods | grep products | awk '{print $1}'
