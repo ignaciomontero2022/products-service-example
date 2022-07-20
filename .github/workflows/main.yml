@@ -120,8 +120,3 @@ jobs:
     - name: Deploy de imagen a EKS. 
       run: |
         kubectl apply -f products.yaml
-        sleep 60
-        kubectl get pods
-        kubectl get svc
-
-        
