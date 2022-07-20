@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: products-app
+  name: shipping-service
 spec:
-  type: LoadBalancer
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
-      name: http
+  clusterIP: 172.20.1.10
   selector:
-    app: products-app
+    app: shipping-app
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment
