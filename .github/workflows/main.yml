@@ -123,9 +123,5 @@ jobs:
         sleep 60
         kubectl get pods
         kubectl get svc
-#         NOMBRE_POD=$(kubectl get pods | grep products | awk '{print $1}')
-#         echo $NOMBRE_POD
-#         DNS_POD=$(kubectl get svc | grep 8081 | awk '{print $4}')
-# #        if $ DNS_POD existe sigo 
-# #        y sino creo kubectl expose pod $NOMBRE_POD --port=8081  --name=products-service-expo8081 --type=LoadBalancer
+
         
