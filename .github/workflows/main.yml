@@ -51,14 +51,14 @@ jobs:
     #needs: Sonarcloud
     runs-on: ubuntu-latest
     steps:
-    # - name: Checkout del codigo desde GitHub.
-    #   uses: actions/checkout@v3
-    # - name: Setup del JDK.
-    #   uses: actions/setup-java@v1
-    #   with:
-    #     java-version: 8
-    # - name: Build con Maven.
-    #   run: mvn -B package --file pom.xml
+    - name: Checkout del codigo desde GitHub.
+      uses: actions/checkout@v3
+    - name: Setup del JDK.
+      uses: actions/setup-java@v1
+      with:
+        java-version: 8
+    - name: Build con Maven.
+      run: mvn -B package --file pom.xml
 
     # - name: Login a Docker Hub  
     #   uses: docker/login-action@v1
@@ -118,5 +118,5 @@ jobs:
     
     - name: Deploy de imagen a EKS. 
       run: |
-        kubectl apply -f  products.yaml
+        kubectl apply -f products.yaml
         kubectl get pods
