@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: products-app
+  name: products-app-8080
 spec:
   type: LoadBalancer
   ports:
