@@ -53,12 +53,12 @@ jobs:
     steps:
     - name: Checkout del codigo desde GitHub.
       uses: actions/checkout@v3
-    - name: Setup del JDK.
-      uses: actions/setup-java@v1
-      with:
-        java-version: 8
-    - name: Build con Maven.
-      run: mvn -B package --file pom.xml
+    # - name: Setup del JDK.
+    #   uses: actions/setup-java@v1
+    #   with:
+    #     java-version: 8
+    # - name: Build con Maven.
+    #   run: mvn -B package --file pom.xml
 
     # - name: Login a Docker Hub  
     #   uses: docker/login-action@v1
@@ -118,8 +118,7 @@ jobs:
     
     - name: Deploy de imagen a EKS. 
       run: |
-          kubectl get pods
-#        kubectl apply -f products.yaml
+        kubectl apply -f products.yaml
 #         NOMBRE_POD=$(kubectl get pods | grep products | awk '{print $1}')
 #         echo $NOMBRE_POD
 #         DNS_POD=$(kubectl get svc | grep 8081 | awk '{print $4}')
