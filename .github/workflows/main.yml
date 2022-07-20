@@ -121,6 +121,7 @@ jobs:
       run: |
         kubectl apply -f products.yaml
         kubectl get svc 
+        kubectl get pods
 #         NOMBRE_POD=$(kubectl get pods | grep products | awk '{print $1}')
 #         echo $NOMBRE_POD
 #         DNS_POD=$(kubectl get svc | grep 8081 | awk '{print $4}')
