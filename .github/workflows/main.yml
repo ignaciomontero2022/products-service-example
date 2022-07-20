@@ -119,8 +119,9 @@ jobs:
     - name: Deploy de imagen a EKS. 
       run: |
         kubectl apply -f products.yaml
-        NOMBRE_POD=$(kubectl get pods | grep products | awk '{print $1}')
-        echo $NOMBRE_POD
-        DNS_POD=$(kubectl get svc | grep 8081 | awk '{print $4}')
-        echo $DNS_POD
-#       kubectl expose pod $NOMBRE_POD --port=8081  --name=products-service-expo8081 --type=LoadBalancer
+#         NOMBRE_POD=$(kubectl get pods | grep products | awk '{print $1}')
+#         echo $NOMBRE_POD
+#         DNS_POD=$(kubectl get svc | grep 8081 | awk '{print $4}')
+# #        if $ DNS_POD existe sigo 
+# #        y sino creo kubectl expose pod $NOMBRE_POD --port=8081  --name=products-service-expo8081 --type=LoadBalancer
+        

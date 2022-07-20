@@ -3,13 +3,26 @@ kind: Service
 metadata:
   name: products-service
 spec:
-  clusterIP: 172.20.1.20
-  selector:
-    app: products-app
+  type: LoadBalancer
   ports:
-  - protocol: "TCP"
-    port: 80
-    targetPort: 8080
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      name: http
+  selector:
+    role: products-app
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: products-service
+# spec:
+#   clusterIP: 172.20.1.20
+#   selector:
+#     app: products-app
+#   ports:
+#   - protocol: "TCP"
+#     port: 80
+#     targetPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -36,5 +49,6 @@ spec:
             memory: "1000Mi"
             cpu: "500m"
         imagePullPolicy: Always
+        strategy: Recreate
         ports:
         - containerPort: 8080
