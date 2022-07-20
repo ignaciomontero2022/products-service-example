@@ -50,7 +50,7 @@ jobs:
     name: Buildeo de imagen, test y publicación a AWS.
     #needs: Sonarcloud
     runs-on: ubuntu-latest
-     steps:
+    steps:
     # - name: Checkout del codigo desde GitHub.
     #   uses: actions/checkout@v3
     # - name: Setup del JDK.
