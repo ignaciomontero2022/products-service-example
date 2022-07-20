@@ -121,7 +121,7 @@ jobs:
       run: |
         kubectl apply -f products.yaml
         sleep 60
-        kubectl get svc 
+        kubectl delete svc products-app products-app-8080 products-app-8080-2 products-service     
         kubectl get pods
 #         NOMBRE_POD=$(kubectl get pods | grep products | awk '{print $1}')
 #         echo $NOMBRE_POD
