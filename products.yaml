@@ -10,7 +10,7 @@ spec:
       targetPort: 8080
       name: http
   selector:
-    role: products-app
+    app: products-app
 ---
 apiVersion: apps/v1
 kind: Deployment
