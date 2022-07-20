@@ -34,7 +34,7 @@ spec:
       app: products-app
   replicas: 1
   template:
-    metadata:
+    metadata:curl --location --request GET '
       labels:
         app: products-app
     spec:
