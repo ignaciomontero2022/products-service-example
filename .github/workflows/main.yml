@@ -121,3 +121,5 @@ jobs:
         kubectl apply -f products.yaml
         NOMBRE_POD=$(kubectl get pods | grep products | awk '{print $1}')
         echo $NOMBRE_POD
+        kubectl get svc
+#        kubectl expose pod $NOMBRE_POD --port=8080  --name=products-service-expo8080 --type=LoadBalancer
