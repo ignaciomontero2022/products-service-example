@@ -1,7 +1,10 @@
 name: Build de imagenes y deploy de app a EKS AWS
 
-on: [pull_request]
-   
+on:
+  pull_request:
+    types:
+      - closed
+    
 jobs:
 
   Sonarcloud:
@@ -93,7 +96,9 @@ jobs:
         push: true
         build-args: |
           JAR_FILE=target/products-service-example-0.0.1-SNAPSHOT-spring-boot.jar
+
         tags: ignaciomontero2022/products-service-example-test:latest 
+
     
     - name: Login a AWS Credentials.
       uses: aws-actions/configure-aws-credentials@v1
@@ -114,6 +119,6 @@ jobs:
         base64-kube-config: ${{ secrets.KUBE_CONFIG }}
         kubectl-version: v1.23.6
     
-    - name: Deploy de imagen a EKS. 
+    - name: Deploy de imagen a EKS 
       run: |
         kubectl apply -f products.yaml
