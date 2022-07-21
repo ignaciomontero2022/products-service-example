@@ -1,6 +1,11 @@
 name: Build de imagenes y deploy de app a EKS AWS
 
-on: [pull_request]
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'master'
     
 jobs:
 
