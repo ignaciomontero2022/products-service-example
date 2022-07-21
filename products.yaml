@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: shipping-service
+  name: products-service
 spec:
-  clusterIP: 172.20.1.10
+  clusterIP: 172.20.1.20
   selector:
-    app: shipping-app
+    app: products-app
   ports:
   - protocol: "TCP"
     port: 80
