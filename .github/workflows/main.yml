@@ -100,7 +100,7 @@ jobs:
         build-args: |
           JAR_FILE=target/products-service-example-0.0.1-SNAPSHOT-spring-boot.jar
 
-        tags: ignaciomontero2022/products-service-example-test:latest 
+        tags: ignaciomontero2022/products-service-example-dev:latest 
 
     
     - name: Login a AWS Credentials.
