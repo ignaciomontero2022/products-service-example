@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: products-service
 spec:
-  clusterIP: 172.20.1.20
+  clusterIP: 172.20.2.20
   selector:
     app: products-app
   ports:
@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: products-app
-        image: ignaciomontero2022/products-service-example:latest
+        image: ignaciomontero2022/products-service-example-test:latest
         resources:
           requests:
             memory: "500Mi"
