@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: products-app
-        image: ignaciomontero2022/products-service-example-dev:latest
+        image: ignaciomontero2022/products-service-example:latest
         resources:
           requests:
             memory: "500Mi"
